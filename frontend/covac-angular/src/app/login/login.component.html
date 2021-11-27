@@ -1,8 +1,13 @@
-<div style="text-align:center">
-    <h1>
-        login works!
-    </h1>
-        <input [(ngModel)]="input.username" placeholder="username"><br>
-        <input [(ngModel)]="input.password" placeholder="password" type="password"><br>
-        <button (click)="onLogin()">Login User</button><br>
+<div class="login">
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form class="login-container">
+    <p><input [(ngModel)]="input.username" [ngModelOptions]="{standalone: true}" placeholder="username"></p>
+    <p><input [(ngModel)]="input.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password"></p>
+    <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button (click)="onLogin()" class="btn btn-primary btn-lg">Login User</button>
+    </div>
+  </form>
 </div>

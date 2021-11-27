@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<!-- <div style="text-align:center">
     <h1>
         register works!
     </h1>
@@ -6,4 +6,18 @@
         <input [(ngModel)]="register.password" placeholder="password" type="password"><br>
         <input [(ngModel)]="register.email" placeholder="email"><br>
         <button (click)="registerUser()">Register User</button><br>
-</div>
+</div> -->
+<div class="login">
+  
+    <h2 class="login-header">Register</h2>
+  
+    <form class="login-container">
+      <p><input [(ngModel)]="register.username" [ngModelOptions]="{standalone: true}" placeholder="username"></p>
+      <p><input [(ngModel)]="register.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password"></p>
+      <p><input [(ngModel)]="register.email" [ngModelOptions]="{standalone: true}" placeholder="email"></p>
+      <p class="text-center">Already registered? <a href="/login">Log In</a>.</p>
+      <div class="d-grid gap-2 col-6 mx-auto">
+          <button (click)="registerUser()" class="btn btn-primary btn-lg">Register User</button>
+      </div>
+    </form>
+  </div>
