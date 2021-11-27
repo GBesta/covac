@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { SymptomsComponent } from './symptoms/symptoms.component';
+// import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HeaderComponent } from './header/header.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SymptomsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    // MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
