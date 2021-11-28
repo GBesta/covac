@@ -1,26 +1,26 @@
-/* .demo-table {
+.demo-table {
     width: 100%;
   }
   
-  .mat-column-demo-position {
+  .mat-column-demo-symptoms {
     width: 32px;
     border-right: 1px solid currentColor;
     padding-right: 24px;
     text-align: center;
   }
   
-  .mat-column-demo-name {
+  .mat-column-demo-covid {
     padding-left: 16px;
     font-size: 20px;
   }
   
-  .mat-column-demo-weight {
+  .mat-column-demo-flu {
     font-style: italic;
   }
   
-  .mat-column-demo-symbol {
+  .mat-column-demo-cold {
     width: 32px;
     text-align: center;
     font-weight: bold;
   }
-   */
+  

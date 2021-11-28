@@ -1,0 +1,21 @@
+.form-container {
+    margin-top: 100px;
+    padding-left: 500px;
+    position: center;
+    max-width: 1000px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .error {
+    background-color: #d84f4f;
+    padding: 10px;
+  }
+  
+  .success {
+    background-color: #73cc73;
+    padding: 10px;
+  }
