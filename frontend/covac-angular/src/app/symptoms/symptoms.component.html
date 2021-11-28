@@ -1,34 +1,44 @@
-<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
   
-    <!-- Position Column -->
-    <ng-container matColumnDef="symptom">
-      <th mat-header-cell *matHeaderCellDef> Symptom </th>
-      <td mat-cell *matCellDef="let element"> {{element.symptom}} </td>
-    </ng-container>
+<div class="float-container">
+
+  <div class="float-child">
+    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="symptom">
+        <th mat-header-cell *matHeaderCellDef> Symptom </th>
+        <td mat-cell *matCellDef="let element"> {{element.symptom}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="covid">
+        <th mat-header-cell *matHeaderCellDef> Covid-19 </th>
+        <td mat-cell *matCellDef="let element"> {{element.covid}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="flu">
+        <th mat-header-cell *matHeaderCellDef> Flu </th>
+        <td mat-cell *matCellDef="let element"> {{element.flu}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="cold">
+        <th mat-header-cell *matHeaderCellDef> Cold </th>
+        <td mat-cell *matCellDef="let element"> {{element.cold}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+  </div>
   
-    <!-- Name Column -->
-    <ng-container matColumnDef="covid">
-      <th mat-header-cell *matHeaderCellDef> Covid-19 </th>
-      <td mat-cell *matCellDef="let element"> {{element.covid}} </td>
-    </ng-container>
+  <div class="float-child">
+    <img src="assets/img/Symptoms.jpg" width="770" height="350"  style="float:right" class="align-right" alt="">
+  </div>
   
-    <!-- Weight Column -->
-    <ng-container matColumnDef="flu">
-      <th mat-header-cell *matHeaderCellDef> Flu </th>
-      <td mat-cell *matCellDef="let element"> {{element.flu}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="cold">
-      <th mat-header-cell *matHeaderCellDef> Cold </th>
-      <td mat-cell *matCellDef="let element"> {{element.cold}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</mat-table>
-  
-  
+</div>

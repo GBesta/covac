@@ -1,26 +1,30 @@
 .demo-table {
-    width: 100%;
+    width: 50%;
+  }
+  .mat-cell{
+    padding-left: 30px;
+  }
+  th.mat-header-cell{
+    padding-left: 30px;
+  }
+  .mat-table{
+    text-align: center !important;
+    width: min-content;
+  }
+
+  th.mat-header-cell {
+    text-align: center !important;
   }
   
-  .mat-column-demo-symptoms {
-    width: 32px;
-    border-right: 1px solid currentColor;
-    padding-right: 24px;
-    text-align: center;
-  }
-  
-  .mat-column-demo-covid {
-    padding-left: 16px;
-    font-size: 20px;
-  }
-  
-  .mat-column-demo-flu {
-    font-style: italic;
-  }
-  
-  .mat-column-demo-cold {
-    width: 32px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
+  .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding-left: 130px;
+    padding-right: 100px;
+
+}  
