@@ -12,12 +12,12 @@ const SYMPTOMS_DATA: SymptomsData[] = [
   {symptom: 'Cough', covid: 'Common', flu: 'Common', cold: 'Mild to moderate'},
   {symptom: 'Fatigue', covid: 'Common', flu: 'Common', cold: 'Mild'},
   {symptom: 'Difficulty breathing', covid: 'Common', flu: 'Rare', cold: 'Rare'},
-  {symptom: 'Body aches', covid: 'Carbon', flu: 'Common', cold: 'Mild'},
-  {symptom: 'Sore throat', covid: 'Nitrogen', flu: 'Sometimes', cold: 'Common'},
-  {symptom: 'Headache', covid: 'Oxygen', flu: 'Common', cold: 'Rare'},
-  {symptom: 'Chills', covid: 'Fluorine', flu: 'Sometimes', cold: 'Rare'},
-  {symptom: 'Smell and taste loss', covid: 'Neon', flu: 'Rare', cold: 'Rare'},
-  {symptom: 'Sneezing', covid: 'Neon', flu: 'Sometimes', cold: 'Common'}
+  {symptom: 'Body aches', covid: 'Sometimes', flu: 'Common', cold: 'Mild'},
+  {symptom: 'Sore throat', covid: 'Sometimes', flu: 'Sometimes', cold: 'Common'},
+  {symptom: 'Headache', covid: 'Sometimes', flu: 'Common', cold: 'Rare'},
+  {symptom: 'Chills', covid: 'Sometimes', flu: 'Sometimes', cold: 'Rare'},
+  {symptom: 'Smell and taste loss', covid: 'Sometimes', flu: 'Rare', cold: 'Rare'},
+  {symptom: 'Sneezing', covid: 'Rare', flu: 'Sometimes', cold: 'Common'}
 ];
 
 @Component({
