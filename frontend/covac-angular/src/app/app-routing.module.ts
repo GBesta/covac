@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
+import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
@@ -25,7 +27,12 @@ const routes: Routes = [
   },
   {
     path: 'appointment',
-    component: AppointmentComponent
+    component: AppointmentComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'faq',
+    component: FaqComponent
   }
 ];
 

@@ -17,8 +17,8 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.BASE_URL}/appointments`);
   }
 
-  createAppointment(appointmentDate: string, name: string, email: string): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { appointmentDate, name, email });
+  createAppointment(token: string, appointmentDate: string, name: string, place: string): Observable<Appointment> {
+    return this.http.patch<Appointment>(`${this.BASE_URL}/api/users/`, {token, appointmentDate, name, place });
   }
 
   cancelAppointment(id: string): Observable<any> {
