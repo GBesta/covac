@@ -17,8 +17,8 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const currentUser = this.userService.getUser();
-    const csrfToken = this.userService.getToken();
-    if (currentUser && csrfToken) {
+    const token = this.userService.getToken();
+    if (currentUser && token) {
       return true;
     }
     // not logged in so redirect to login page with the return url

@@ -1,15 +1,101 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpBackend } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { analyzeFileForInjectables } from '@angular/compiler';
 
-@Injectable()
+export interface User{
+  username: string;
+  token: string;
+}
+
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService {
-  constructor(private http: HttpClient) { }
+
+  public currentUserSubject = new BehaviorSubject<User>({username : "", token:""});
+  currentUser: User = {username : "", token:""};
+  url = 'http://127.0.0.1:8000';
+
+  private httpWithoutInterceptor: HttpClient;
+
+  constructor(
+    handler: HttpBackend,
+    private http: HttpClient,
+  ) {
+    this.httpWithoutInterceptor = new HttpClient(handler);
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      this.currentUser = JSON.parse(user);
+      this.setcurrentUserSubject(this.currentUser);
+    }
+  }
+
+  setcurrentUserSubject(user: User): void {
+    const originalToken = this.currentUser && this.currentUser.token;
+    // if we have a token saved, keep it
+    if (originalToken && !user.token) {
+      user.token = originalToken;
+    }
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUser = user;
+    this.currentUserSubject.next(user);
+  }
+
+  /**
+   * Log in by sending a POST request containing username and password to the backend.
+   */
+   loginUser(username: string, password: string): Observable<User> {
+    return this.httpWithoutInterceptor.post<User>(
+      this.url + '/api/auth/', {
+        username, password
+      }).pipe(
+      map((response: User) => {
+        this.setcurrentUserSubject(response);
+        return response;
+    }),
+    );
+  }
+
+  logOut(): void {
+    localStorage.removeItem('currentUser');
+    this.currentUser = {username : "", token:""};
+    this.setcurrentUserSubject({username : "", token: ""});
+  }
+
+  getUser(): User {
+    return this.currentUser;
+  }
+
+  getToken(): string {
+    return this.currentUser.token;
+  }
 
   registerNewUser(userData:any): Observable<any>{
     return this.http.post('http://127.0.0.1:8000/api/users/', userData)
   }
-  loginUser(userData:any): Observable<any>{
-    return this.http.post('http://127.0.0.1:8000/api/auth/', userData)
-  }
+  // loginUser(userData:any): Observable<any>{
+  //   return this.http.post('http://127.0.0.1:8000/api/auth/', userData)
+  // }
 }
+
+// @Injectable()
+// export class UserService {
+//   currentUser : User = null;
+
+//   constructor(private http: HttpClient) { }
+
+
+
+//   getUser(token:any): Observable<any>{
+//     var header = {
+//       headers: new HttpHeaders()
+//         .set('Authorization', token)
+//     }
+//     var res = this.http.get('http://127.0.0.1:8000/api/users/', header)
+//     return res
+//   }
+  
+// }
+

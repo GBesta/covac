@@ -9,6 +9,8 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
   input:any;
+  status: any;
+  data: any;
 
   constructor(private userService: UserService){}
 
@@ -19,12 +21,14 @@ export class LoginComponent implements OnInit {
     }
   };
   onLogin() {
-    this.userService.loginUser(this.input).subscribe({
-      next: ()  => {
-        console.log();
+    this.userService.loginUser(this.input.username, this.input.password).subscribe({
+      next: (res: any)  => {
+        this.data = res;
+        this.status = res.status;
+        console.log(res);
         alert('User ' + this.input.username + ' logged in!')
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('error', error);
       }
     });
