@@ -6,24 +6,18 @@
         </a>
     </nav>  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="appointment">Appointment</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="symptoms">Symptoms</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="faq">FAQ</a>
-        </li>
-      </ul>
-      <div class="col-md-8 text-end">
+          <a class="nav-link" href="symptoms">Symptoms</a>
+          <a class="nav-link" href="faq">FAQ</a>
+    </div>
+      <div *ngIf="getUsername(); else loggedOut">
           <a href="login" class="nav-link px-2 link-dark">
             <button type="button" class="btn btn-outline-primary me-2">Login</button>
           </a>
-    </div>
-    </div>
-  </nav>
+      </div>
+      <ng-template #loggedOut class="text-end">
+          <a class="nav-link" href="faq">My Page</a>
+          <button (click)="logOut()" type="button" class="btn btn-outline-primary me-2">Logout</button>
+      </ng-template>  
+</nav>
