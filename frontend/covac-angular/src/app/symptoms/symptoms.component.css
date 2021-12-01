@@ -17,13 +17,27 @@
   }
   
   .float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+    padding-top: 90px;
+    height: 100%;
+    display: flex;
 }
 
 .float-child {
     width: 50%;
-    float: left;
-    padding-left: 130px;
-    padding-right: 100px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
 }  
+
+@media (max-width: 1100px){
+  .float-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#img{
+  max-width: 95%;
+  height: auto;
+}
