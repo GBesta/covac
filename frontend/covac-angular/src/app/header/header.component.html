@@ -1,16 +1,19 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-blue" style="background-color: #e3f2fd;">
-    <nav class="navbar navbar-light">
+<nav id="main-nav" class="navbar navbar-expand-lg sticky-top navbar-blue" style="background-color: #e3f2fd;">
+  <div id="nav-left"> 
+  <nav class="navbar navbar-light">
         <a class="navbar-brand" href="#">
           <img src="assets/img/vaccine-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           COVAC
         </a>
     </nav>  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div  id="navbarSupportedContent">
           <a class="nav-link" href="#">Home</a>
           <a class="nav-link" href="appointment">Appointment</a>
           <a class="nav-link" href="symptoms">Symptoms</a>
           <a class="nav-link" href="faq">FAQ</a>
     </div>
+  </div> 
+  <div id="nav-right">
       <div *ngIf="getUsername(); else loggedOut">
           <a href="login" class="nav-link px-2 link-dark">
             <button type="button" class="btn btn-outline-primary me-2">Login</button>
@@ -19,5 +22,6 @@
       <ng-template #loggedOut class="text-end">
           <a class="nav-link" href="faq">My Page</a>
           <button (click)="logOut()" type="button" class="btn btn-outline-primary me-2">Logout</button>
-      </ng-template>  
+      </ng-template> 
+    </div> 
 </nav>
