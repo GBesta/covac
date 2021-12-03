@@ -1,17 +1,18 @@
 from django.contrib.auth.models import User
-from rest_framework import viewsets
+from django.shortcuts import get_object_or_404
+from rest_framework import serializers, viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
-
+from rest_framework.decorators import action, api_view
 from .models import Person 
-from .serializers import UserSerializer
+from .serializers import PersonSerializer, UserSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = User.objects.all()
+    queryset = User.objects.get_queryset().order_by('username')
     serializer_class = UserSerializer
 
 
@@ -31,4 +32,4 @@ class GetAuthToken(ObtainAuthToken):
         token = Token.objects.get(key=response.data['token'])
         user = User.objects.get(id=token.user_id)
         user_serializer = UserSerializer(user, many=False)
-        return Response({'token': token.key, 'user':user_serializer.data})
+        return Response({'token': token.key, 'user':user_serializer.data, 'id':token.user_id})
