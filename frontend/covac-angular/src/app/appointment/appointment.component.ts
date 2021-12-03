@@ -6,8 +6,9 @@ export interface Appointment {
   _id: string;
   appointmentDate: string;
   name: string;
-  email: string;
+  place: string;
 }
+
 
 @Component({
   selector: 'app-appointment',
@@ -38,7 +39,7 @@ export class AppointmentComponent implements OnInit {
   createAppointment() {
     this.successMsg = '';
     this.errorMsg = '';
-    this.id = this.userService.getUser().token;
+    this.id = this.userService.getToken();
     this.appointmentService.createAppointment(this.id, this.appointmentDate, this.name, this.place)
       .subscribe({ next: (createdAppointment: Appointment) => {
         this.appointmentDate = '';
@@ -51,6 +52,4 @@ export class AppointmentComponent implements OnInit {
       }
       });
   }
-
-
 }

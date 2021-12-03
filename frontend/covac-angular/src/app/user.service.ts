@@ -7,15 +7,17 @@ import { analyzeFileForInjectables } from '@angular/compiler';
 export interface User{
   username: string;
   token: string;
+  id : number;
 }
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
 
-  public currentUserSubject = new BehaviorSubject<User>({username : "", token:""});
-  currentUser: User = {username : "", token:""};
+  public currentUserSubject = new BehaviorSubject<User>({username : "", token:"", id : 0});
+  currentUser: User = {username : "", token:"", id : 0};
   url = 'http://127.0.0.1:8000';
 
   private httpWithoutInterceptor: HttpClient;
@@ -60,8 +62,8 @@ export class UserService {
 
   logOut(): void {
     localStorage.removeItem('currentUser');
-    this.currentUser = {username : "", token:""};
-    this.setcurrentUserSubject({username : "", token: ""});
+    this.currentUser = {username : "", token:"", id : 0};
+    this.setcurrentUserSubject({username : "", token: "", id : 0});
   }
 
   getUser(): User {
@@ -75,27 +77,4 @@ export class UserService {
   registerNewUser(userData:any): Observable<any>{
     return this.http.post('http://127.0.0.1:8000/api/users/', userData)
   }
-  // loginUser(userData:any): Observable<any>{
-  //   return this.http.post('http://127.0.0.1:8000/api/auth/', userData)
-  // }
 }
-
-// @Injectable()
-// export class UserService {
-//   currentUser : User = null;
-
-//   constructor(private http: HttpClient) { }
-
-
-
-//   getUser(token:any): Observable<any>{
-//     var header = {
-//       headers: new HttpHeaders()
-//         .set('Authorization', token)
-//     }
-//     var res = this.http.get('http://127.0.0.1:8000/api/users/', header)
-//     return res
-//   }
-  
-// }
-

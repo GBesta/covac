@@ -1,16 +1,24 @@
-.float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+
+#left-box {
+    width: 50%;
+    height: 100%;
+    border: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#right-box{
+    width: 50%;
+    height: 100%;
+    padding-top: 70px;
+
 }
 
-.float-child {
-    width: 50%;
-    float: left;
-    padding-left: 130px;
-    padding-right: 100px;
-    border: red;
-}  
+#main-container{
+    display: flex;
+    height: 100%;
+}
 
-.accordion-item{
-    width:fit-content;
+.accordion{
+    width: 70%;
 }

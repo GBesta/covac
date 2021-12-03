@@ -18,7 +18,9 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { FaqComponent } from './faq/faq.component';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MatInputModule } from '@angular/material/input'
     HomeComponent,
     HeaderComponent,
     SymptomsComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    FaqComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

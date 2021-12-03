@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from '../appointment.service';
 import { User, UserService } from '../user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { User, UserService } from '../user.service';
 })
 export class HeaderComponent implements OnInit {
   show: boolean = true;
-  constructor(private userService : UserService) {}   
+  constructor(private userService : UserService, private appointmentService : AppointmentService) {}   
   
   ngOnInit(): void {
   }
@@ -18,10 +19,9 @@ export class HeaderComponent implements OnInit {
   }
   getUsername(): boolean{
     var variable = this.userService.getUser().username
-    console.log(variable)
     if (variable == ""){
       return true
     }
     return false
-    }
+  }
 }

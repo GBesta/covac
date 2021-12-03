@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   status: any;
   data: any;
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   ngOnInit() {
     this.input = {
@@ -25,7 +26,6 @@ export class LoginComponent implements OnInit {
       next: (res: any)  => {
         this.data = res;
         this.status = res.status;
-        console.log(res);
         alert('User ' + this.input.username + ' logged in!')
       },
       error: (error: any) => {

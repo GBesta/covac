@@ -20,8 +20,12 @@
           </a>
       </div>
       <ng-template #loggedOut class="text-end">
-          <a class="nav-link" href="faq">My Page</a>
+        <a href="profile">
+          <button type="button" class="btn btn-outline-primary me-2">My Page</button>
+        </a>
+        <a href="#">
           <button (click)="logOut()" type="button" class="btn btn-outline-primary me-2">Logout</button>
+        </a>
       </ng-template> 
     </div> 
 </nav>

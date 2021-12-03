@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { Appointment } from './appointment/appointment.component';
-import { environment } from 'src/environments/environment';
 import { Appointment } from './appointment/appointment.component';
 
 @Injectable({
@@ -10,11 +8,19 @@ import { Appointment } from './appointment/appointment.component';
 })
 export class AppointmentService {
   private BASE_URL =  "http://127.0.0.1:8000"
+  date: string;
+  name: string;
+  place: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.date = "";
+    this.name = "";
+    this.place = "";
+   }
 
-  getAppointments(): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(`${this.BASE_URL}/appointments`);
+  getAppointment(id: string){
+    console.log("shevida")
+    return this.http.get(`http://127.0.0.1:8000/api/users/${id}/`);
   }
 
   createAppointment(token: string, appointmentDate: string, name: string, place: string): Observable<Appointment> {

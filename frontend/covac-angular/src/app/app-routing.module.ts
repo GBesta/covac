@@ -5,6 +5,7 @@ import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 
